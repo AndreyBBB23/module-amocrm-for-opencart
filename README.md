@@ -11,3 +11,5 @@ Opportunities:
 - Working with feedback form statuses;
 - Setting up the Task Template;
 - Logging.
+
+**Contact me by email: bereschenko96@yandex.by**
