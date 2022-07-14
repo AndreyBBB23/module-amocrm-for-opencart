@@ -1,0 +1,17 @@
+<modification>
+    <name>AmoCrm integration</name>
+    <version>3.x</version>
+    <code>amo-crm</code>
+    <author>AmoCrm</author>
+    <link>https://www.amocrm.ru</link>
+    <file path="catalog/model/checkout/order.php">
+        <operation>
+            <search>
+                <![CDATA[ public function addOrderHistory ]]>
+            </search>
+            <add position="after">
+                <![CDATA[ if($this->config->get('amo_crm_status') == 1 && !isset($this->session->data['amo_crm_webhook_in_work'])) { $this->load->model('tool/amo_crm'); if($order_status_id == $this->config->get('config_order_status_id')){ $this->model_tool_amo_crm->newOrderToAmo($order_id, $order_status_id); } else { $this->model_tool_amo_crm->updateOrderToAmo($order_id, $order_status_id); } } ]]>
+            </add>
+        </operation>
+    </file>
+</modification>
